@@ -1,16 +1,11 @@
-# movie_app
-
-A new Flutter project.
-
+# movie_app -TMDB API
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project uses tmdb movie api for displaying movies list.It also contains a movie detail page which displays the ratings,vote count,description,date of release of the movie
 
-A few resources to get you started if this is your first Flutter project:
+The follwing api is used in this project to get the Top rated movies list:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- https://api.themoviedb.org/3/movie/top_rated?api_key=c0eade514ece305cffb65a15199798e8&language=en-US&page=1
+
+The project uses Moor Databse as local Storage.(moor_flutter).
