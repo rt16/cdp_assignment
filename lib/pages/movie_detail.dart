@@ -88,7 +88,11 @@ class _MovieDetailState extends State<MovieDetail> {
             )
           ],
         ),
+<<<<<<< HEAD
         childWidget(Icons.share_outlined, "Share Movie 123 dinesh-Aarti",
+=======
+        childWidget(Icons.share_outlined, "Share Movie 123 dinesh kasle",
+>>>>>>> 8c29b556822d18598c1e46d9c1a2ba6d030956c5
             Colors.white, () {}),
         childWidget(Icons.download, "DownloadMV..", Colors.white, () {}),
       ],
