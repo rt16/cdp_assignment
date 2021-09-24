@@ -88,7 +88,8 @@ class _MovieDetailState extends State<MovieDetail> {
             )
           ],
         ),
-        childWidget(Icons.share_outlined, "Share Movie", Colors.white, () {}),
+        childWidget(
+            Icons.share_outlined, "Share Movie 456", Colors.white, () {}),
         childWidget(Icons.download, "DownloadMV..", Colors.white, () {}),
       ],
     );
