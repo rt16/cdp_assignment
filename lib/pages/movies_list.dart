@@ -77,18 +77,7 @@ class _MoviesListState extends State<MoviesList> {
           .then((value) async {
         if (value['status'] == 200) {
           setState(() {
-            // var batch ;
             loader = false;
-            //movie = value['body'];
-            // value['body'].entries.forEach((e) => movieList!.add(MovieData(
-            //     page: value['body']['page'],
-            //     results: value['body']['results'],
-            //     total_pages: value['body']['total_pages'],
-            //     total_results: value['body']['total_results'])));
-            // print(value['body']['results']);
-
-            // var data = MovieData.fromJson(value['body']);
-            // data.results = Result.fromJson(value['body']['results']);
             var movieData = MovieData(
                 page: value['body']['page'],
                 results: value['body']['results'],

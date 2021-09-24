@@ -31,11 +31,29 @@ class _MovieDetailState extends State<MovieDetail> {
       body: Column(
         children: [
           posterWidget(),
+          SizedBox(
+            height: 5,
+          ),
           movieTitle(),
+          SizedBox(
+            height: 5,
+          ),
           releaseDate(),
+          SizedBox(
+            height: 5,
+          ),
           playButtonWidget(),
+          SizedBox(
+            height: 5,
+          ),
           descriptionText(widget.result!.overview!),
+          SizedBox(
+            height: 5,
+          ),
           shareWidget(),
+          SizedBox(
+            height: 5,
+          ),
         ],
       ),
     );
@@ -43,7 +61,6 @@ class _MovieDetailState extends State<MovieDetail> {
 
   rate() {
     setState(() {
-      thumbsUp = !thumbsUp;
       print(thumbsUp);
     });
   }
@@ -53,13 +70,24 @@ class _MovieDetailState extends State<MovieDetail> {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         childWidget(Icons.add, "Vote", Colors.white, () {}),
-        childWidget(
-            thumbsUp == false
-                ? Icons.thumb_up_alt_sharp
-                : Icons.thumb_up_outlined,
-            "Rate",
-            Colors.white,
-            () {}),
+        Column(
+          children: [
+            IconButton(
+              onPressed: () {
+                setState(() {
+                  thumbsUp = !thumbsUp;
+                });
+              },
+              icon:
+                  Icon(thumbsUp ? Icons.thumb_up : Icons.thumb_up_alt_outlined),
+              color: Colors.white,
+            ),
+            Text(
+              "Rate",
+              style: TextStyle(color: Colors.white),
+            )
+          ],
+        ),
         childWidget(Icons.share_outlined, "Share", Colors.white, () {}),
         childWidget(Icons.download, "Download", Colors.white, () {}),
       ],
@@ -84,20 +112,40 @@ class _MovieDetailState extends State<MovieDetail> {
   }
 
   Widget playButtonWidget() {
-    return Container(
-      decoration: BoxDecoration(
-          color: Colors.white,
-          border: Border.all(),
-          borderRadius: BorderRadius.all(Radius.circular(5))),
-      margin: EdgeInsets.all(5),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.play_arrow)),
-          Text("PLAY")
-        ],
+    ///gesture dect
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: RaisedButton(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            IconButton(onPressed: () {}, icon: Icon(Icons.play_arrow)),
+            Text("PLAY")
+          ],
+        ),
+        onPressed: () {},
+        color: Colors.white,
+        textColor: Colors.black,
+        splashColor: Colors.grey,
       ),
     );
+    // return InkWell(
+    //   onTap: () => print('icon tapped'),
+    //   child: Container(
+    //     decoration: BoxDecoration(
+    //         color: Colors.white,
+    //         border: Border.all(),
+    //         borderRadius: BorderRadius.all(Radius.circular(5))),
+    //     margin: EdgeInsets.all(5),
+    // child: Row(
+    //   mainAxisAlignment: MainAxisAlignment.center,
+    //   children: [
+    //     IconButton(onPressed: () {}, icon: Icon(Icons.play_arrow)),
+    //     Text("PLAY")
+    //   ],
+    // ),
+    //   ),
+    // );
   }
 
   Widget posterWidget() {
@@ -138,7 +186,7 @@ class _MovieDetailState extends State<MovieDetail> {
                   color: Colors.white,
                   fontSize: 12.0,
                   fontFamily: 'Arvo',
-                  fontWeight: FontWeight.w200)),
+                  fontWeight: FontWeight.bold)),
         ),
         SizedBox(
           width: 12,
